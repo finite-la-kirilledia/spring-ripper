@@ -15,5 +15,6 @@
 
     <bean class="com.finite.injectRandomInt.InjectRandomIntAnnotationBeanPostProcessor"/>
     <bean class="com.finite.profiling.ProfilingAnnotationBeanPostProcessor"/>
+    <bean class="com.finite.postProxy.PostProxyContextListener"/>
 
 </beans>
