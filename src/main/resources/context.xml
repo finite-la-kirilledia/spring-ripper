@@ -9,12 +9,13 @@
 
     <context:annotation-config/>
 
-    <bean class="com.finite.quoters.TerminatorQuoter">
+    <bean class="com.finite.quoters.Terminator">
         <constructor-arg value="I'll be back"/>
     </bean>
 
     <bean class="com.finite.injectRandomInt.InjectRandomIntAnnotationBeanPostProcessor"/>
     <bean class="com.finite.profiling.ProfilingAnnotationBeanPostProcessor"/>
     <bean class="com.finite.postProxy.PostProxyContextListener"/>
+    <bean class="com.finite.deprecatedClass.DeprecatedClassBeanFactoryPostProcessor"/>
 
 </beans>

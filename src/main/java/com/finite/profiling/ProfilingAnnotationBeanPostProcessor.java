@@ -1,5 +1,6 @@
 package com.finite.profiling;
 
+import com.finite.utils.ClassUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
@@ -16,7 +17,7 @@ public class ProfilingAnnotationBeanPostProcessor implements BeanPostProcessor {
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         Class<?> beanClass = bean.getClass();
         if (beanClass.isAnnotationPresent(Profiling.class)) {
-            return Proxy.newProxyInstance(beanClass.getClassLoader(), beanClass.getInterfaces(), (proxy, method, args) -> {
+            return Proxy.newProxyInstance(beanClass.getClassLoader(), ClassUtils.getAllInheritedInterfaces(beanClass), (proxy, method, args) -> {
                 System.out.printf("Start profiling %s.%s()\n", bean.getClass().getSimpleName(), method.getName());
 
                 long startTime = System.nanoTime();

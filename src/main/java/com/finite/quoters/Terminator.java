@@ -1,5 +1,6 @@
 package com.finite.quoters;
 
+import com.finite.deprecatedClass.DeprecatedClass;
 import com.finite.injectRandomInt.InjectRandomInt;
 import com.finite.postProxy.PostProxy;
 import com.finite.profiling.Profiling;
@@ -7,14 +8,15 @@ import com.finite.profiling.Profiling;
 import javax.annotation.PostConstruct;
 
 @Profiling
-public class TerminatorQuoter implements Quoter {
+@DeprecatedClass(newImpl = T1000.class)
+public class Terminator implements Quoter {
 
     private final String quote;
 
     @InjectRandomInt(min = 2, max = 7)
     private int repeat;
 
-    public TerminatorQuoter(String quote) {
+    public Terminator(String quote) {
         System.out.println("Constructor");
         this.quote = quote;
     }
