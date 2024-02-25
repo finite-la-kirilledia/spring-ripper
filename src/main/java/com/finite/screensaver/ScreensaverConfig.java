@@ -1,9 +1,6 @@
 package com.finite.screensaver;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
 import java.awt.*;
 import java.util.Random;
@@ -13,7 +10,7 @@ import java.util.Random;
 public class ScreensaverConfig {
 
     @Bean
-    @Scope("prototype")
+    @Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public Color color() {
         Random random = new Random();
         int r = random.nextInt(255);
