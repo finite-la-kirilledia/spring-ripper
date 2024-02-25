@@ -9,11 +9,11 @@ import java.awt.*;
 import java.util.Random;
 
 @Configuration
-@ComponentScan(basePackages = "com.finite.screensaver")
+@ComponentScan(basePackages = "com.finite")
 public class ScreensaverConfig {
 
     @Bean
-    @Scope(value = "prototype")
+    @Scope(value = "periodical")
     public Color color() {
         Random random = new Random();
         int r = random.nextInt(255);
